@@ -24,44 +24,48 @@ class MainActivity : AppCompatActivity() {
 
         binding.number0.setOnClickListener {
             if (binding.sonucText.text != "") {
-                binding.sonucText.text = binding.sonucText.text.toString() + "0"
+                appendToSonucText("0")
             }
         }
         binding.number1.setOnClickListener {
-            binding.sonucText.text = binding.sonucText.text.toString() + "1"
+            appendToSonucText("1")
         }
         binding.number2.setOnClickListener {
-            binding.sonucText.text = binding.sonucText.text.toString() + "2"
+            appendToSonucText("2")
         }
         binding.number3.setOnClickListener {
-            binding.sonucText.text = binding.sonucText.text.toString() + "3"
+            appendToSonucText("3")
         }
         binding.number4.setOnClickListener {
-            binding.sonucText.text = binding.sonucText.text.toString() + "4"
+          appendToSonucText("4")
         }
         binding.number5.setOnClickListener {
-            binding.sonucText.text = binding.sonucText.text.toString() + "5"
+            appendToSonucText("5")
         }
         binding.number6.setOnClickListener {
-            binding.sonucText.text = binding.sonucText.text.toString() + "6"
+           appendToSonucText("6")
         }
         binding.number7.setOnClickListener {
-            binding.sonucText.text = binding.sonucText.text.toString() + "7"
+           appendToSonucText("7")
         }
         binding.number8.setOnClickListener {
-            binding.sonucText.text = binding.sonucText.text.toString() + "8"
+            appendToSonucText("8")
         }
         binding.number9.setOnClickListener {
-            binding.sonucText.text = binding.sonucText.text.toString() + "9"
+            appendToSonucText("9")
         }
 
         binding.toplama.setOnClickListener {
             if (!binding.sonucText.text.endsWith('+')&& binding.sonucText.text != "" ) {
-                binding.sonucText.text = binding.sonucText.text.toString() + "+"
+                appendToSonucText("+")
             }
 
         }
 
+    }
+
+    private fun appendToSonucText (a: String) {
+        binding.sonucText.text = binding.sonucText.text.toString() + a
     }
 
     private fun clearText() {
