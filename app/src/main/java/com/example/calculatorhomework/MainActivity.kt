@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import com.example.calculatorhomework.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -67,7 +68,9 @@ class MainActivity : AppCompatActivity() {
             if (binding.sonucText.text != ""
                 && !binding.sonucText.text.endsWith('+')
                 && !binding.sonucText.text.endsWith(
-                    '=')) {
+                    '='
+                )
+            ) {
             }
             val sayilar = binding.sonucText.text.toString().split("+")
 
@@ -81,12 +84,18 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        binding.carpma.setOnClickListener {
+            notAvailableToast()
+        }
+        binding.cikarma.setOnClickListener {
+            notAvailableToast()
+        }
+        binding.bolme.setOnClickListener {
+            notAvailableToast()
+        }
+
+
     }
-
-
-
-
-
 
 
     private fun appendToSonucText(a: String) {
@@ -95,6 +104,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun clearText() {
         binding.sonucText.text = ""
+    }
+
+    private fun notAvailableToast() {
+        Toast.makeText(this, "Not Available", Toast.LENGTH_SHORT).show()
     }
 }
 
