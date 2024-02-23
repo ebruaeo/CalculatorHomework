@@ -2,6 +2,7 @@ package com.example.calculatorhomework
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import com.example.calculatorhomework.databinding.ActivityMainBinding
@@ -37,16 +38,16 @@ class MainActivity : AppCompatActivity() {
             appendToSonucText("3")
         }
         binding.number4.setOnClickListener {
-          appendToSonucText("4")
+            appendToSonucText("4")
         }
         binding.number5.setOnClickListener {
             appendToSonucText("5")
         }
         binding.number6.setOnClickListener {
-           appendToSonucText("6")
+            appendToSonucText("6")
         }
         binding.number7.setOnClickListener {
-           appendToSonucText("7")
+            appendToSonucText("7")
         }
         binding.number8.setOnClickListener {
             appendToSonucText("8")
@@ -56,23 +57,49 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.toplama.setOnClickListener {
-            if (!binding.sonucText.text.endsWith('+')&& binding.sonucText.text != "" ) {
+            if (!binding.sonucText.text.endsWith('+') && binding.sonucText.text != "") {
                 appendToSonucText("+")
             }
 
         }
 
+        binding.equals.setOnClickListener {
+            if (binding.sonucText.text != ""
+                && !binding.sonucText.text.endsWith('+')
+                && !binding.sonucText.text.endsWith(
+                    '=')) {
+            }
+            val sayilar = binding.sonucText.text.toString().split("+")
+
+            var toplam = 0
+
+            for (sayi in sayilar) {
+                toplam += sayi.toInt()
+            }
+            appendToSonucText("=")
+            binding.sonucText.text = toplam.toString()
+
+        }
+
     }
 
-    private fun appendToSonucText (a: String) {
+
+
+
+
+
+
+    private fun appendToSonucText(a: String) {
         binding.sonucText.text = binding.sonucText.text.toString() + a
     }
 
     private fun clearText() {
         binding.sonucText.text = ""
     }
-
 }
+
+
+
 
 
 
